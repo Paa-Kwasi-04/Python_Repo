@@ -1,0 +1,7 @@
+LICENSE
+README.md
+setup.py
+kwasipdf.egg-info/PKG-INFO
+kwasipdf.egg-info/SOURCES.txt
+kwasipdf.egg-info/dependency_links.txt
+kwasipdf.egg-info/top_level.txt

@@ -1,0 +1,50 @@
+Apologies for the misunderstanding. Here's a combined set of coding exercises, including the earlier ones, in a random order:
+
+1. Write a program that asks the user to enter their name and age, and then prints out a message that says "Hello, <name>! You are <age> years old."
+
+2. Write a program that asks the user to enter two numbers, and then prints out their sum, difference, product, and quotient.
+
+3. Write a program that asks the user to enter a temperature in Fahrenheit, and then converts it to Celsius using the formula C = (F - 32) * 5 / 9. The program should then print out the temperature in Celsius.
+
+4. Write a program that asks the user to enter three integers, and then prints out the largest and smallest of the three numbers.
+
+5. Write a program that asks the user to enter a number, and then checks whether it is positive, negative, or zero. The program should then print out a message indicating the result.
+
+6. Write a program that asks the user to enter their age, and then checks whether they are eligible to vote or not. In most countries, the minimum voting age is 18.
+
+7. Write a program that asks the user to enter a series of numbers and calculates their sum until the user enters a negative number. Use a do-while loop for this task.
+
+8. Write a program that asks the user to enter a grade and prints the corresponding letter grade based on the following criteria:
+   - 90-100: A
+   - 80-89: B
+   - 70-79: C
+   - 60-69: D
+   - Below 60: F
+
+9. Write a program that asks the user to enter a series of numbers and calculates their sum, skipping any negative numbers using the continue statement.
+
+10. Write a program that asks the user to enter two integers, and then checks whether they are equal or not. If they are equal, the program should print out a message saying "The two numbers are equal." If they are not equal, the program should print out a message saying "The two numbers are not equal."
+
+11. Write a program that asks the user to enter a year, and then checks whether it is a leap year or not. A leap year is a year that is divisible by 4, except for years that are divisible by 100 but not divisible by 400.
+
+12. Write a program that asks the user to enter a series of numbers and calculates their sum, skipping any negative numbers using the continue statement.
+
+13. Write a program that asks the user to enter their name and age, and then prints out a message that says "Hello, <name>! You are <age> years old."
+
+14. Write a program that asks the user to enter a number, and then checks whether it is positive or negative. If it is positive, print "The number is positive." If it is negative, print "The number is negative."
+
+15. Write a program that asks the user to enter a series of numbers and calculates their sum until the user enters a number that is greater than 100 using a while loop and break statement.
+
+16. Write a program that asks the user to enter a number and prints the multiplication table for that number from 1 to 10 using a while loop.
+
+17. Write a program that prints the numbers from 1 to 100, but stops the loop and exits the program when it reaches a number divisible by 7 using the break statement.
+
+18. Write a program that asks the user to enter a number and checks whether it is positive or negative. If it is positive, print "The number is positive." If it is negative,
+
+ print "The number is negative."
+
+19. Write a program that asks the user to enter a year, and then checks whether it is a leap year or not. A leap year is a year that is divisible by 4, except for years that are divisible by 100 but not divisible by 400.
+
+20. Write a program that asks the user to enter a series of numbers and calculates their sum, skipping any negative numbers using the continue statement.
+
+Feel free to tackle these exercises in any order you prefer. Happy coding!

@@ -1,0 +1,45 @@
+Certainly! Here is a mixed set of practice coding questions involving data types, data structures, loops, conditions, functions, exceptions, list comprehension, and dictionary comprehension:
+
+1. Write a program that asks the user for their name and age, and then prints out a message with their name and age.
+
+2. Write a program that calculates the area of a rectangle using the length and width provided by the user.
+
+3. Write a program that takes a string as input and counts the number of vowels (a, e, i, o, u) in the string.
+
+4. Write a program that takes a list of numbers as input and returns a new list containing only the even numbers from the original list.
+
+5. Write a program that generates a random number between 1 and 100 and asks the user to guess the number. Provide feedback if the guess is too high or too low until the correct number is guessed.
+
+6. Write a program that stores a list of numbers and finds the maximum and minimum values in the list.
+
+7. Write a program that asks the user to enter a series of numbers separated by commas and calculates their sum.
+
+8. Write a program that checks if a given string is a palindrome, considering only alphanumeric characters and ignoring case.
+
+9. Write a program that takes a list of strings as input and returns a new list with the strings sorted in alphabetical order.
+
+10. Write a program that asks the user to enter a series of integers and calculates their average. Handle the exception if the user enters a non-integer value.
+
+11. Write a program that prints the multiplication table for a given number.
+
+12. Write a program that generates a random password of a specified length. The password should include a mix of uppercase letters, lowercase letters, numbers, and special characters.
+
+13. Write a program that asks the user for a number and checks if it is a prime number.
+
+14. Write a program that asks the user for a number and determines if it is positive, negative, or zero.
+
+15. Write a program that calculates the grade of a student based on their score. Use the following grading scale: 90-100: A, 80-89: B, 70-79: C, 60-69: D, below 60: F.
+
+16. Write a function that takes a list of numbers as input and returns the sum of all the numbers.
+
+17. Write a function that checks if a given string is a palindrome (reads the same forwards and backwards).
+
+18. Write a program that asks the user for two numbers and divides the first number by the second number. Handle the exception if the second number is zero.
+
+19. Write a program that opens a file, reads its contents, and handles the exception if the file does not exist.
+
+20. Write a program that uses list comprehension to create a new list containing the squares of the numbers from 1 to 10.
+
+21. Write a program that uses dictionary comprehension to create a dictionary where the keys are numbers from 1 to 5, and the values are their squares.
+
+Feel free to choose any of these questions and solve them. Remember, practice is key to improving your coding skills!

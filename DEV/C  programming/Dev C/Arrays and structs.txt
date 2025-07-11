@@ -1,0 +1,33 @@
+Sure! Here are 10 coding questions on arrays and structs in C:
+
+Question 1:
+Write a C program to find the sum of all elements in an integer array.
+
+Question 2:
+Given an integer array, write a C program to find the maximum and minimum elements in the array.
+
+Question 3:
+Implement a C program to reverse the elements of an integer array in place.
+
+Question 4:
+Write a C program to sort an integer array in ascending order using the Bubble Sort algorithm.
+
+Question 5:
+Given a struct representing a student with fields: name (string), age (integer), and grade (float), write a C program to find the student with the highest grade in an array of students.
+
+Question 6:
+Implement a C program to calculate the average of all the elements in an integer array.
+
+Question 7:
+Write a C program to remove duplicates from a sorted integer array. The program should modify the original array in place.
+
+Question 8:
+Given two integer arrays, write a C program to find the intersection of the two arrays (common elements) and store them in a new array.
+
+Question 9:
+Create a struct representing a book with fields: title (string), author (string), and year of publication (integer). Write a C program to find all books published after a given year in an array of books.
+
+Question 10:
+Given an array of integers, write a C program to move all zeros to the end while maintaining the relative order of the non-zero elements.
+
+Remember to test your solutions with different inputs to ensure correctness. Good luck!

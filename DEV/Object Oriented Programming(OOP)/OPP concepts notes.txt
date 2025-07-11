@@ -1,0 +1,29 @@
+Types of inheritance
+1. Single Inheritance:
+    we have a child class inheriting from only one parent
+2. Multiple Inheritance:
+    we have a child class inheriting from more than one parent class
+3. Multilevel Inheritance:
+    here we can inherit from subclasses too
+4. Hierarchical Inheritance:
+    So like a hierarchy we can have one base class given rise to more than one child
+5. Hybrid Inheritance:
+    So here we have a combination of two or more of the other types of inheritance
+
+
+
+Note: Actually the root of all classes including built in ones
+is the object class which is an in built class
+example in multilevel inheritance program
+
+Abstraction: it is the act of presenting general definition of certain programs so as to hide the complexities of such
+programs from the user.We can't also create instances or objects of abstract classes
+Also abstract classes should have at least one abstract method using the decorator
+@abstractmethod and can have normal methods to.The abstract class must also inherit from ABC class
+
+Access specifiers:
+With access specifiers there aren't actually any keywords like public, protected or private for the class specifiers since
+this concept is not really handle by python interpreter but for languages like javascript they do have this specifier
+keywords.And for the private specified members of a class you can use name mangling, public methods and getters and setters
+to access them outside the class.Where getters are used to get the private data members while setters are used to reset
+them. Buh good programmers also use getters and setters instead of the first two methods

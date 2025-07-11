@@ -1,0 +1,3 @@
+C:/Users/User/OneDrive/Desktop/DEV/C  programming/Dev C/cmake-build-debug/CMakeFiles/Dev_C.dir
+C:/Users/User/OneDrive/Desktop/DEV/C  programming/Dev C/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/User/OneDrive/Desktop/DEV/C  programming/Dev C/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,10 @@
+# ninja log v5
+1	291	7179032385308355	build.ninja	6f7ead93e512ff5c
+368	880	7178526708654710	Data_Structures_and_Algorithms.exe	6b39bb8d8173b6c2
+2	368	7178526703574833	CMakeFiles/Data_Structures_and_Algorithms.dir/Stacks_using_linked_list.c.obj	78fe873b1b4b2be4
+1	404	7177976102073296	CMakeFiles/Data_Structures_and_Algorithms.dir/Stacks_using_arrays.c.obj	5284217acdf63ed9
+2	10459	7179026645656481	CMakeFiles/Data_Structures_and_Algorithms.dir/.idea/Dynamic_memory_allocation.c.obj	7d3af45f77239663
+0	390	7179033191360109	CMakeFiles/Data_Structures_and_Algorithms.dir/memory_allocation.c.obj	4dfc70ec338033ac
+391	949	7179033196897013	Data_Structures_and_Algorithms.exe	6ee178af05bf2b92
+2	379	7179038627083922	CMakeFiles/Data_Structures_and_Algorithms.dir/memory_allocation.c.obj	4dfc70ec338033ac
+380	920	7179038632492548	Data_Structures_and_Algorithms.exe	6ee178af05bf2b92

@@ -1,0 +1,6 @@
+# ninja log v5
+4	862	7120237488051676	CMakeFiles/Matrices.dir/matrices_practice.c.obj	cd38f1a7567d8a1c
+3	526	7269006922574438	build.ninja	2a21d1bc51733127
+863	1846	7120237497818479	Matrices.exe	c9230785f2bee5c1
+3	971	7117704520545429	CMakeFiles/Matrices.dir/Inverse_of_a_matrix.c.obj	cf2fd636ba6f6ae5
+3	850	7109675699603737	CMakeFiles/Matrices.dir/multiplication_of_Matrices.c.obj	d1d7a830eff02990

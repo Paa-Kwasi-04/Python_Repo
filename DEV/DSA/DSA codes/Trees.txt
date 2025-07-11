@@ -1,0 +1,52 @@
+
+this is a non-linear data type (general  binary trees, binary search,forest,tournament)
+if nodes in a tree don't have children are known as leaves
+for a node with n nodes it has (n-1) number of edges
+internal node is a non-terminal node that is a node that has at least one child. So every non-leaf node is an internal
+node
+leaf nodes with no children are also called external or terminal nodes
+the level of a tree start counting from 0 at the root node and increases by 1(level and depths are used interchangeably)
+height of a node  is the longest path from a leaf node to the given node and the height of the tree itself is
+the maximum height in the tree
+types of binary trees
+(rooted, full(strictly), complete(perfect),skewed,almost complete)
+rooted: has root nodes with at most two children per node
+full: here each node has two or 0 children
+complete: every internal node has exactly two children and all leaf nodes are at the same level
+almost complete: all the levels are completely filled except possible the last level  filled from left to right
+skewed : is a binary tree with depth of (n-1) with n nodes
+
+
+traversing techniques
+depth first
+    inorder(to get infix of an expression tree) : left root right
+    preorder(to get prefix of an expression tree) : root left right
+    postorder(to get postfix of an expression tree) : left root right
+breath first(prints nodes level by level)
+
+Binary search tree
+for arrangement small numbers to the left side and larger numbers to the right side of any node
+
+AVL tree(self-balancing ST)
+it is a special kind of BST
+im AVL height of left and right subtree of every node differs by at most one
+
+AVL Rotation
+process of moving nodes to make  an AVL: tree balanced again
+Xtics
+1. max possible number of nodes = 2*exp(H+1)-1
+2. min number of nodes N(H) = N(H-1) + N(H-2) + 1
+3. min possible height using N nodes  = |log2N|
+4. max height
+
+
+
+
+
+
+
+
+
+
+
+

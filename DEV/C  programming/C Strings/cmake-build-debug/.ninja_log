@@ -1,0 +1,17 @@
+# ninja log v5
+2	282	7129797492633636	build.ninja	38297eee4e8196c4
+2	669	7119856446313441	CMakeFiles/C_Strings.dir/calculating_the_length_of_strings.c.obj	e27f09e54ef8af0c
+1	485	7129796409727474	C_Strings.exe	bebb162da5956193
+1	408	7129740435173952	CMakeFiles/C_Strings.dir/converting_btn_cases_in_C_strings.c.obj	367001d99b0c4eeb
+1	760	7119875999977678	CMakeFiles/C_Strings.dir/appending__strings.c.obj	5d2856eec7ce652f
+1	381	7129790097526848	CMakeFiles/C_Strings.dir/practice.c.obj	ff50de865ac694a3
+2	345	7129796294006142	CMakeFiles/C_Strings.dir/practice_2.c.obj	22f08fda3099c31a
+2	374	7125886694851335	CMakeFiles/C_Strings.dir/extracting_a_substring_from_a_string.c.obj	a5ff344a1abf39b7
+0	414	7125925971916987	CMakeFiles/C_Strings.dir/inserting_a_string_in_a_given_text.c.obj	35117eaccc5f9528
+2	428	7129724944385268	CMakeFiles/C_Strings.dir/deleting_a_substring_from_a_text.c.obj	148fe31ae312c84d
+1	333	7129797522083183	CMakeFiles/C_Strings.dir/practice_2.c.obj	22f08fda3099c31a
+334	835	7129797527040710	C_Strings.exe	bebb162da5956193
+2	332	7129797843755985	CMakeFiles/C_Strings.dir/practice_2.c.obj	22f08fda3099c31a
+333	821	7129797848606027	C_Strings.exe	bebb162da5956193
+1	341	7129798295516110	CMakeFiles/C_Strings.dir/practice_2.c.obj	22f08fda3099c31a
+341	807	7129798300119138	C_Strings.exe	bebb162da5956193

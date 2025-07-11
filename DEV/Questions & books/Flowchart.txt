@@ -1,0 +1,19 @@
+Flowcharts
+
+A diagram that shows the 'flow' of steps in a program
+
+Rounded rectangles - Terminals (Start, End)
+Rectangles - Processes (Mathematical computations and variable assignment)
+Parallelograms - Reading input and displaying output 
+Diaomonds - Decision structures 
+
+Four Flowchart structures
+* Sequence - Normal linear flow 
+* Decision - Actions taken depending on a condition 
+* Repetition - Using a loop to reiterate a code
+* Case - The switch case (large if-else structure)
+
+In drawing flowcharts, they can sometimes occupy multiple pages.
+In such a case, a circle is used to indicate a connector.
+
+The symbol for functions is three rectangles side-by-side
