@@ -37,10 +37,17 @@ def player_guess(first, last) -> int:
     int
         The player's guessed number.
     """
-    guess: int = int(input(f'Enter a number btn ({first},{last}):'))
-    return guess
+    while True: 
+        try:
+            guess: int = int(input(f'Enter a number btn ({first},{last}):'))
+            if first <= guess <= last:
+                return guess
+            raise ValueError(f'Number should be btn ({first},{last})')
+        except Exception as e:
+            print(e)
+            continue
 
-
+     
 def main():
     """
     Run the number guessing game.
@@ -73,6 +80,6 @@ def main():
             break
 
 
-if '__name__' == '__main__':
+if __name__ == '__main__':
     main()
     print('Thanks for playing')
