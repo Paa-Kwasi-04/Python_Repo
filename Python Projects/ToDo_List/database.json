@@ -10,5 +10,11 @@
     "Due-Date": "16/09/2025",
     "tag": "School",
     "completed": false
+  },
+  {
+    "task": "Bath",
+    "Due-Date": "10/09/2025",
+    "tag": "Personal",
+    "completed": false
   }
 ]
