@@ -5,6 +5,21 @@ import re
 
 
 class TODO:
+    """
+    A TODO list management system that handles tasks with due dates, tags, and completion status.
+
+    Attributes
+    ----------
+    _FILEPATH : str
+        Path to the JSON database file
+    _TAGS : list
+        List of available task categories
+    OBJ : list
+        List of task object properties
+    date_format : str
+        Standard date format string used across the application
+    """
+
     def __init__(self):
         self._FILEPATH: str = 'database.json'
         self._TAGS: list = [
@@ -16,7 +31,20 @@ class TODO:
         self.OBJ: list = ['task', 'Due-Date', 'tag', 'completed']
         self.date_format = "%d/%m/%Y"
 
-    def menu(self) -> int:  # Fixed return type
+    def menu(self) -> int:
+        """
+        Display the main menu and get user choice.
+
+        Returns
+        -------
+        int
+            Selected menu option (1-7)
+
+        Raises
+        ------
+        ValueError
+            If input is not a valid menu option
+        """
         while True:
             try:
                 print(
@@ -36,7 +64,18 @@ class TODO:
                 print(e)
 
     def load_database(self) -> list:
-        """Load database, create if doesn't exist"""
+        """
+        Load the task database from JSON file.
+
+        Returns
+        -------
+        list
+            List of task dictionaries. Empty list if file doesn't exist or is corrupted.
+
+        Notes
+        -----
+        Creates a new database file if it doesn't exist.
+        """
         if os.path.exists(self._FILEPATH):
             try:
                 with open(self._FILEPATH, mode='r') as file:
@@ -49,11 +88,31 @@ class TODO:
             return []
 
     def save_database(self, db: list) -> None:
-        """Save database to file"""
+        """
+        Save the database to JSON file.
+
+        Parameters
+        ----------
+        db : list
+            List of task dictionaries to save
+
+        Notes
+        -----
+        Saves with indentation for human readability
+        """
         with open(self._FILEPATH, mode='w') as file:
             json.dump(db, file, indent=2)
 
-    def View_task(self):
+    def View_task(self)->None:
+        """
+        Display all tasks with their status and details.
+
+        Notes
+        -----
+        - Shows task number, completion status, and all task properties
+        - Marks overdue tasks specifically
+        - Displays "No tasks found!" if database is empty
+        """
         today = datetime.now().date()
         db = self.load_database()
 
@@ -74,7 +133,21 @@ class TODO:
                     print(f'  {key}: {value}')
         print()
 
-    def Mark_as_done(self):
+    def Mark_as_done(self)->None:
+        """
+        Mark a selected task as completed.
+
+        Notes
+        -----
+        - Displays current tasks before selection
+        - Validates task number input
+        - Prevents marking already completed tasks
+
+        Raises
+        ------
+        ValueError
+            If invalid task number is provided
+        """
         db = self.load_database()
 
         if not db:
@@ -100,7 +173,21 @@ class TODO:
         except Exception as e:
             print(e)
 
-    def Delete_task(self):
+    def Delete_task(self)->None:
+        """
+        Delete a selected task from the database.
+
+        Notes
+        -----
+        - Displays current tasks before deletion
+        - Validates task number input
+        - Shows confirmation of deleted task
+
+        Raises
+        ------
+        ValueError
+            If invalid task number is provided
+        """
         db = self.load_database()
 
         if not db:
@@ -124,7 +211,20 @@ class TODO:
             except Exception as e:
                 print(e)
 
-    def enter_task(self)->str:
+    def enter_task(self) -> str:
+        """
+        Get and validate task description from user input.
+
+        Returns
+        -------
+        str
+            Validated task description
+
+        Raises
+        ------
+        ValueError
+            If task is empty or contains only digits
+        """
         while True:
             try:
                 task: str = input('Enter a new task: ').strip()
@@ -134,7 +234,20 @@ class TODO:
             except Exception as e:
                 print(e)
     
-    def enter_date(self)->str:
+    def enter_date(self) -> str:
+        """
+        Get and validate due date from user input.
+
+        Returns
+        -------
+        str
+            Validated date in standard format (dd/mm/yyyy)
+
+        Raises
+        ------
+        ValueError
+            If date is invalid or in wrong format
+        """
         while True:
             try: 
                 date: str = input('Enter due date (dd/mm/yyyy): ').strip()
@@ -145,7 +258,20 @@ class TODO:
                     raise ValueError('Wrong date or date format')
             except Exception as e:
                 print(e)
-    def enter_tag(self)->str:
+    def enter_tag(self) -> str:
+        """
+        Get and validate task tag selection from user.
+
+        Returns
+        -------
+        str
+            Selected tag from available tags list
+
+        Raises
+        ------
+        ValueError
+            If invalid tag number is selected
+        """
         while True:
             try:
                 tag_choice: int = int(input('Enter tag number: '))
@@ -155,7 +281,18 @@ class TODO:
             except ValueError:
                 print("Invalid input,try again")
 
-    def Add_task(self):
+    def Add_task(self)->None:
+        """
+        Add a new task to the database.
+
+        Notes
+        -----
+        Collects and validates:
+        - Task description
+        - Due date
+        - Task tag
+        Creates new task entry and saves to database
+        """
         task = self.enter_task()
         due_date = self.enter_date()
 
@@ -178,7 +315,19 @@ class TODO:
 
         print("Task added successfully!")
 
-    def Search(self) -> list:
+    def Search(self) -> dict:
+        """
+        Search for tasks containing specific text.
+
+        Returns
+        -------
+        dict or None
+            Matching task dictionary if found, None if not found
+
+        Notes
+        -----
+        Search is case-insensitive
+        """
         db = self.load_database()
         db_task: list = [task['task']for task in db]
 
@@ -188,7 +337,15 @@ class TODO:
                 return db[index]
         return None
 
-    def Status(self):
+    def Status(self)->tuple:
+        """
+        Get overall task completion statistics.
+
+        Returns
+        -------
+        tuple
+            (completed_count, total_count) of tasks
+        """
         db = self.load_database()
         db_status: list = [task['completed']for task in db]
         db_len: int = len(db_status)
@@ -197,7 +354,30 @@ class TODO:
         return true_count, db_len
     
     def validate_and_format_date(self, date_string):
+        """
+        Validate and standardize date string input.
 
+        Parameters
+        ----------
+        date_string : str
+            Date string in various possible formats
+
+        Returns
+        -------
+        str or None
+            Formatted date string in dd/mm/yyyy format if valid,
+            None if the date string is invalid
+
+        Notes
+        -----
+        Supports formats:
+        - DD/MM/YYYY
+        - DD-MM-YYYY
+        - YYYY-MM-DD
+        - M/D/YYYY
+        - D Mon YYYY
+        - Mon D, YYYY
+        """
         date_formats = {
             r"^\d{2}/\d{2}/\d{4}$": "%d/%m/%Y",  # DD/MM/YYYY
             r"^\d{2}-\d{2}-\d{4}$": "%d-%m-%Y",  # DD-MM-YYYY
@@ -218,7 +398,13 @@ class TODO:
         return None
 
 
-def main():
+def main()->None:
+    """
+    Main application entry point.
+
+    Handles the main program loop and user interaction flow.
+    Continues until user chooses to exit.
+    """
     todo_list = TODO()
     while True:
         choice = todo_list.menu()
