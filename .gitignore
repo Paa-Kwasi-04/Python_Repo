@@ -1,5 +1,6 @@
-Python Projects/Number_guessing/Records.csv
-Python Projects/ToDo_List/database.json
+Python_Projects/Number_guessing/Records.csv
+Python_Projects/ToDo_List/database.json
 
-
+# Python cache files
 __pycache__/
+*.pyc
