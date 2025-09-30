@@ -73,24 +73,24 @@ class WeatherApp:
 
 
 #test
-# if __name__ == "__main__":
-#     try:
-#         weather_app = WeatherApp()
+if __name__ == "__main__":
+    try:
+        weather_app = WeatherApp()
 
-#         # Test with a city name
-#         location_data, weather_data = weather_app.current_weather("London")
+        # Test with a city name
+        location_data, weather_data = weather_app.current_weather("Madina")
 
-#         if location_data and weather_data:
-#             print("Location Information:")
-#             for key, value in location_data.items():
-#                 print(f"  {key}: {value}")
+        if location_data and weather_data:
+            print("Location Information:")
+            for key, value in location_data.items():
+                print(f"  {key}: {value}")
 
-#             print("\nWeather Information:")
-#             for key, value in weather_data.items():
-#                 print(f"  {key}: {value}")
-#         else:
-#             print("Failed to retrieve weather data")
+            print("\nWeather Information:")
+            for key, value in weather_data.items():
+                print(f"  {key}: {value}")
+        else:
+            print("Failed to retrieve weather data")
 
-#     except Exception as e:
-#         print(f"Application error: {e}")
+    except Exception as e:
+        print(f"Application error: {e}")
 
