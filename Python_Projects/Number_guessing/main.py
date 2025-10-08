@@ -27,7 +27,7 @@ main(limit, count, first, last)
 from random import randint
 import pandas as pd
 import os
-FILEPATH = 'Number_guessing/Records.csv'
+FILEPATH = 'Records.csv'
 
 def csv_read() -> pd.DataFrame:
     """
