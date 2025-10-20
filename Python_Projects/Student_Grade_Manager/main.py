@@ -1,3 +1,6 @@
+from collections import defaultdict
+
+
 class StudentGradeManager():
     def __init__(self, name: str, subject: str, score: int):
 
@@ -5,20 +8,19 @@ class StudentGradeManager():
         self.__subject_list: list = ['Math', 'Science']
         self.__name: str = name.capitalize()
         self.__subject: str = subject.capitalize()
-        self.validate_subject()
         self.__score: int = score
+
+        # validate student details
+        self.validate_subject()
         self.validate_score()
+
+        # grade score
         self.__grade: str = self.score_grader()
 
-        #adding to student records
+        # adding to student records
         self.student_record()
 
-    @property
-    def score_getter(self):
-        return self.__score
-
-    @score_getter.setter
-    def score_setter(self):
+    def __score_abstract(self):
         while True:
             try:
                 self.__score = int(input('Enter new score'))
@@ -31,14 +33,9 @@ class StudentGradeManager():
     def validate_score(self):
         if self.__score in range(0, 101):
             return
-        self.score_setter()
+        self.__score_abstract()
 
-    @property
-    def subject_getter(self):
-        return self.__subject
-
-    @subject_getter.setter
-    def subject_setter(self):
+    def __subject_abstract(self):
         print('Select a subject from this list')
         for i, subject in enumerate(self.__subject_list, start=1):
             print(f'{i}: {subject}')
@@ -50,7 +47,7 @@ class StudentGradeManager():
         try:
             if self.__subject in self.__subject_list:
                 return
-            self.subject_setter()
+            self.__subject_abstract()
         except Exception as e:
             print(f'Error validating subject: {e}')
 
@@ -97,14 +94,22 @@ class StudentGradeManager():
         if not records:
             print(f'No records found for {name}')
             return
-        
+
         total_score: int = sum(student['score'] for student in records)
         subject_count: int = len(records)
 
         for record in records:
-                print(f"Name: {record['name']} | Subject: {record['subject']} "
-                    f"| Score: {record['score']} | Grade: {record['grade']}\n")
-            
+            print(f"Name: {record['name']} | Subject: {record['subject']} "
+                  f"| Score: {record['score']} | Grade: {record['grade']}\n")
+
         print(f'{name}\'s Average Score: {total_score/subject_count:.2f}')
 
-    
+    def class_report(self):
+        # so creates an empty list by default if key is being accessed for the first time
+        grouped_students = defaultdict(list)
+
+        for student in self.__student_list:
+            # for per student name, used as a key, it appends its data to a list
+            grouped_students[student['name']].append(student)
+
+        grouped_students = dict(grouped_students)
