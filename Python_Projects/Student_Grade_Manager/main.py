@@ -1,9 +1,9 @@
-
 from collections import defaultdict
 import argparse
 import json
 import csv
 import os
+
 
 class StudentGradeManager:
     SUBJECTS = ['Math', 'Science']
@@ -89,7 +89,8 @@ class StudentGradeManager:
 
     def _validate_subject(self, subject: str):
         if subject not in self.SUBJECTS:
-            raise ValueError(f"Subject must be one of: {', '.join(self.SUBJECTS)}")
+            raise ValueError(
+                f"Subject must be one of: {', '.join(self.SUBJECTS)}")
 
     def _grade_from_score(self, score: int) -> str:
         if score >= 90:
@@ -129,14 +130,24 @@ class StudentGradeManager:
 
         overall_avg = None
         if self._records:
-            overall_avg = sum(r['score'] for r in self._records) / len(self._records)
+            overall_avg = sum(r['score']
+                              for r in self._records) / len(self._records)
 
         return {'per_student': class_summary, 'overall_average': overall_avg}
 
+
 def main():
-    parser = argparse.ArgumentParser(description='Student Grade Manager (interactive)')
-    parser.add_argument('--demo', action='store_true', help='Preload demo records before starting the menu')
-    parser.add_argument('--csv', help='CSV file path to load/save records')
+    parser = argparse.ArgumentParser(
+        description='Student Grade Manager (interactive)')
+    parser.add_argument('--demo', action='store_true',
+                        help='Preload demo records before starting the menu')
+
+    # Get the directory where the script is located
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    default_csv = os.path.join(script_dir, 'student_grades.csv')
+
+    parser.add_argument('--csv', default=default_csv,
+                        help='CSV file path to load/save records (defaults to student_grades.csv in script directory)')
     args = parser.parse_args()
 
     mgr = StudentGradeManager(csv_path=args.csv)
@@ -194,7 +205,8 @@ def main():
                 except ValueError as e:
                     print(f"Error: {e}")
                 else:
-                    print(f"Added: {record['name']} - {record['subject']}: {record['score']} ({record['grade']})")
+                    print(
+                        f"Added: {record['name']} - {record['subject']}: {record['score']} ({record['grade']})")
 
             elif choice == '2':
                 records = mgr.view_all_records()
@@ -203,7 +215,8 @@ def main():
                 else:
                     print("\nAll records:")
                     for r in records:
-                        print(f"  {r['name']} - {r['subject']}: {r['score']} ({r['grade']})")
+                        print(
+                            f"  {r['name']} - {r['subject']}: {r['score']} ({r['grade']})")
 
             elif choice == '3':
                 name = input("Student name for report: ").strip()
@@ -225,7 +238,8 @@ def main():
                 print(json.dumps(cr, indent=2))
 
             elif choice == '5':
-                path = input("Export CSV path (leave empty to use --csv path): ").strip()
+                path = input(
+                    "Export CSV path (leave empty to use --csv path): ").strip()
                 if not path:
                     if not mgr.csv_path:
                         print("No default CSV configured. Provide a path.")
@@ -246,6 +260,7 @@ def main():
     except KeyboardInterrupt:
         print("\nInterrupted — exiting.")
     # end main
+
 
 if __name__ == '__main__':
     main()
