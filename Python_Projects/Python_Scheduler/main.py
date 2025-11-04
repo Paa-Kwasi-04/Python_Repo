@@ -5,6 +5,7 @@ import re
 from pathlib import Path
 import os
 import subprocess
+from datetime import datetime
 
 
 class Exit_Codes(IntEnum):
@@ -15,15 +16,17 @@ class Exit_Codes(IntEnum):
     PATH_EXECUTABLE = 30
     GIT_BASH_NOT_FOUND = 31
     PATH_NOT_EXECUTABLE = 32
+    PROCESS_TIMEOUT = 40
+    PROCESS_CLOSED = 41
 
 
 class Python_Scheduler:
+    
     def __init__(self):
-        pass
+        self.GIT_BASH_EXECUTABLE = r"C:\Program Files\Git\bin\bash.exe"
 
     def get_input(self):
-        num: int = len(sys.argv) - 1
-        if num != 0:
+        if len(sys.argv) >= 3:
             script_path = sys.argv[1]
             interval = sys.argv[2]
 
@@ -35,55 +38,43 @@ class Python_Scheduler:
 
     def validate_inputs(self, script_path: str, interval: str):
         script_path, interval = script_path.strip(), interval.strip()
-        if not interval or interval == '0':
-            error_code: Exit_Codes = Exit_Codes.INVALID_INPUTS
-            self.log_run(error_code)
-            sys.exit(error_code)
-
-        if not re.fullmatch(r"^\d+$", interval):
-            error_code: Exit_Codes = Exit_Codes.INVALID_INPUTS
-            self.log_run(error_code)
-            sys.exit(error_code)
+        if not interval or interval == '0' or not re.fullmatch(r"^\d+$", interval):
+            self.log_run(Exit_Codes.INVALID_INPUTS)
+            sys.exit(Exit_Codes.INVALID_INPUTS)
 
         interval_int = int(interval)
 
         if not script_path:
-            error_code: Exit_Codes = Exit_Codes.INVALID_INPUTS
-            self.log_run(error_code)
-            sys.exit(error_code)
+            self.log_run(Exit_Codes.INVALID_INPUTS)
+            sys.exit(Exit_Codes.INVALID_INPUTS)
 
         path = Path(script_path).expanduser().resolve()
 
         if not path.exists():
-            error_code: Exit_Codes = Exit_Codes.PATH_NOT_FOUND
-            self.log_run(error_code)
-            sys.exit(error_code)
+            self.log_run(Exit_Codes.PATH_NOT_FOUND)
+            sys.exit(Exit_Codes.PATH_NOT_FOUND)
 
         if path.is_dir():
-            error_code: Exit_Codes = Exit_Codes.PATH_IS_DIR
-            self.log_run(error_code)
-            sys.exit(error_code)
+            self.log_run(Exit_Codes.PATH_IS_DIR)
+            sys.exit(Exit_Codes.PATH_IS_DIR)
 
         if not os.access(path, os.X_OK):
             result_code = self.make_executable(path)
             if result_code == Exit_Codes.GIT_BASH_NOT_FOUND or result_code == Exit_Codes.PATH_NOT_EXECUTABLE:
-                error_code: Exit_Codes = result_code
-                self.log_run(error_code)
-                sys.exit(error_code)
+                self.log_run(result_code)
+                sys.exit(result_code)
             else:
                 return path, interval_int
 
-    def make_executable(self, script_path):
+    def make_executable(self, script_path:Path):
 
-        script_path_abs = os.path.abspath(script_path)
+        script_path_abs = str(script_path.resolve())
 
-        git_bash_executable = "C:/Program Files/Git/bin/bash.exe"
-
+        git_bash_executable = self.GIT_BASH_EXECUTABLE
         if not os.path.exists(git_bash_executable):
             return Exit_Codes.GIT_BASH_NOT_FOUND
 
         chmod_command = f"chmod +x '{script_path_abs}'"
-
         try:
             subprocess.run(
                 [git_bash_executable, "-c", chmod_command],
@@ -98,7 +89,57 @@ class Python_Scheduler:
         except subprocess.CalledProcessError as e:
             return Exit_Codes.PATH_NOT_EXECUTABLE
 
-    def run_scripts(self):
+    def run_scripts(self,script_path,log_filename):
+        start_time =  datetime.now()
+        timeout = 600
+        stdout = ''
+        stderr = ''
+        exit_code = ''
+        git_bash_executable = self.GIT_BASH_EXECUTABLE
+
+        if not os.path.exists(git_bash_executable):
+            return Exit_Codes.GIT_BASH_NOT_FOUND
+
+
+        try:
+            process = subprocess.Popen(
+                [git_bash_executable, "-c", script_path],
+                check=True,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True
+            )
+            try:
+                stdout,stderr = process.communicate(timeout=timeout)
+                exit_code = process.returncode
+            except subprocess.TimeoutExpired as e:
+                process.kill()
+                stdout,stderr = process.communicate()
+                exit_code = Exit_Codes.PROCESS_TIMEOUT
+        except subprocess.CalledProcessError as e:
+            stdout = e.stdout
+            stderr = e.stderr
+            exit_code = Exit_Codes.PROCESS_CLOSED
+
+        stdout = process.stdout
+        stderr = process.stderr
+        exit_code = Exit_Codes.SUCCESS
+        end_time = datetime.now()
+
+        duration = start_time - end_time
+
+        params = {
+            'start_time':start_time,
+            'end_time':end_time,
+            'duration':duration,
+            'stdout':stdout,
+            'stderr':stderr,
+            'exit_code':exit_code
+        }
+
+        log_message = self.log_formatter(params=params)
+
+    def log_formatter(self,params:dict):
         pass
 
     def log_run(self, error_code):
