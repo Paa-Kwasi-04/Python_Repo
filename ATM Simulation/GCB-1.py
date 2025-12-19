@@ -59,7 +59,7 @@ class Node(ATM):
 
     def deposit(self, y):
         pin = int(input("Enter your pin number: "))
-        ptr = search(pin, y)
+        ptr = self.search(pin, y)
 
         amount = float(input("Enter amount to be deposited: "))
         ptr.atm.amount += amount
@@ -68,7 +68,7 @@ class Node(ATM):
 
     def withdrawal(self, y):
         pin = int(input("Enter your pin number: "))
-        ptr = search(pin, y)
+        ptr = self.search(pin, y)
 
         amount = float(input("Enter amount to be withdrawn: "))
         ptr.atm.amount -= amount
@@ -77,12 +77,13 @@ class Node(ATM):
 
     def check_balance(self, y):
         pin = int(input("Enter your pin number: "))
-        ptr = search(pin, y)
+        ptr = self.search(pin, y)
 
         return ptr.atm.amount
 
 
 def main():
+    atm_account = Node()
     global ans, x
     head = None
 
@@ -100,24 +101,25 @@ def main():
         ans = int(input("\nWhich of the Services do You require: "))
 
         if ans == 1:
-            head = create_account(head)
+            head = atm_account.create_account(head)
             print("Accounts have been created")
         elif ans == 2:
-            head = deposit(head)
+            head = atm_account.deposit(head)
             print("Amount has been credited")
         elif ans == 3:
-            head = withdrawal(head)
+            head = atm_account.withdrawal(head)
             print("Amount has been debited")
         elif ans == 4:
-            x = check_balance(head)
+            x = atm_account.check_balance(head)
             print("Your balance is: {}".format(x))
         elif ans == 5:
-            head = delete_account(head)
+            head = atm_account.delete_account(head)
             print("Account has been deleted")
         elif ans == 6:
             break
         else:
             print("Invalid response\nTry again")
+
 
 
 if __name__ == "__main__":
