@@ -3,12 +3,12 @@ import pytest
 
 
 def test_positive():
-    assert square(2) == 4
-    assert square(3) == 9
+    # assert square(2) == 4
+    # assert square(3) == 9
 
     # OR
-    # for x in range(1, 100):
-    #     assert square(x) == x*x
+    for x in range(1, 100):
+        assert square(x) == x*x
 
 
 def test_negative():

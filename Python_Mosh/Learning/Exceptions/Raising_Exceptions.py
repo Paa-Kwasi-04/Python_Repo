@@ -1,6 +1,6 @@
 def calculate_xfactor(age):
     if age <= 0:
-        raise ValueError('Age cannot be 0 or less')
+        raise ValueError('crazy chale')
     return 10/age
 
 
