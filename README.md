@@ -6,7 +6,7 @@ This repository is a collection of Python learning work and small-to-medium proj
 
 ### 1) `ATM Simulation`
 - `ATM_python.py`: Console ATM simulation with deposit, withdrawal, and balance checks.
-- `ATM_cpp.c`: C version of the ATM simulation.
+- `ATM_cpp.c`: Alternate ATM implementation source file.
 
 ### 2) `Python_Projects`
 Personal projects focused on practical application building:
@@ -30,4 +30,3 @@ Course-based practice and mini-projects from Python learning modules:
 - Many projects are standalone and can be run from their own folders.
 - Some projects require external dependencies (`Pipfile`/`requirements.txt`) or API keys/environment variables.
 - Build artifacts and caches are present in some folders (`dist`, `build`, `__pycache__`).
-
